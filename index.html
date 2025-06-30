@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Automatic Motivational Quote Generator</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f0f8ff; text-align: center; padding: 50px;}
+    #quote-box { background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px #ccc; display: inline-block; }
+    #quote { font-size: 1.3em; margin-bottom: 20px;}
+    #author { color: #555; margin-bottom: 20px;}
+    button { padding: 10px 20px; font-size: 1em; border: none; border-radius: 5px; background: #007bff; color: #fff; cursor: pointer;}
+    button:hover { background: #0056b3; }
+  </style>
+</head>
+<body>
+  <div id="quote-box">
+    <div id="quote">"Push yourself, because no one else is going to do it for you."</div>
+    <div id="author">– Unknown</div>
+    <button onclick="newQuote()">Show Another Quote</button>
+  </div>
+  <script>
+    const quotes = [
+      { text: "Push yourself, because no one else is going to do it for you.", author: "Unknown" },
+      { text: "Success is the sum of small efforts, repeated day in and day out.", author: "Robert Collier" },
+      { text: "Don’t watch the clock; do what it does. Keep going.", author: "Sam Levenson" },
+      { text: "The secret to getting ahead is getting started.", author: "Mark Twain" },
+      { text: "Believe you can and you’re halfway there.", author: "Theodore Roosevelt" },
+      { text: "Great things never come from comfort zones.", author: "Unknown" },
+      { text: "Dream bigger. Do bigger.", author: "Unknown" }
+    ];
+
+    function newQuote() {
+      const random = Math.floor(Math.random() * quotes.length);
+      document.getElementById('quote').textContent = `"${quotes[random].text}"`;
+      document.getElementById('author').textContent = `– ${quotes[random].author}`;
+    }
+
+    // Automatically update the quote every 10 seconds
+    setInterval(newQuote, 10000); // 10000ms = 10 seconds
+  </script>
+</body>
+</html>
